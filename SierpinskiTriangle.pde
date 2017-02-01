@@ -9,9 +9,12 @@ public void setup()
 }
 public void draw()
 {
+	background(0,0,0);
 	noStroke();
 	fill(r,g,b);
-	sierpinski(0,500,250+changeBy);
+	for(int i = 0; i < 360; i+=70){
+		sierpinski(130+50*cos(radians(i)),360+50*sin(radians(i)),250);
+	}
 
 }
 public void mousePressed()//optional
@@ -24,7 +27,7 @@ public void mousePressed()//optional
 	else if(value < 100)
 		changeBy = 10;
 }
-public void sierpinski(int x, int y, int len) 
+public void sierpinski(float x, float y, int len) 
 {
 	if(len <= 20){
 		triangle(x,y,x+len/2,y-len,x+len,y);
